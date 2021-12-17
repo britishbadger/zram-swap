@@ -1,7 +1,7 @@
 [Unit]
 Description=zram swap service
 Requires=systemd-modules-load.service
-Before=shutdown.target
+Before=shutdown.target reboot.target halt.target
 #After=
 
 [Service]
@@ -11,7 +11,7 @@ ExecStop=/usr/local/sbin/zram-swap.sh stop
 RemainAfterExit=true
 
 [Install]
-WantedBy=sysinit.target
+WantedBy=graphical.target
 #RequiredBy=
 
 # vim:ft=systemd
